@@ -1,0 +1,4 @@
+---
+
+- include: best-practice.yml
+- include: playbook.yml

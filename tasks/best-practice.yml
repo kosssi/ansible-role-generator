@@ -1,0 +1,24 @@
+---
+
+- name: Generate requirements.txt
+  local_action: lineinfile
+    dest={{ requirements_file }}
+    regexp=^{{ ansible_generator_roles[item].name }},
+    line="{{ ansible_generator_roles[item].name }},{{ ansible_generator_roles[item].version }}"
+    create=yes
+  with_items: packages
+
+- name: Generate ansible.cfg
+  local_action: template
+    src=ansible.cfg.j2
+    dest={{ ansible_cfg_file }}
+
+- name: Generate Vagrantfile
+  local_action: template
+    src=vagrantfile.j2
+    dest={{ vagrant_file }}
+
+- name: Create project folder for vagrant up
+  local_action: file
+    path=../{{ project_name }}
+    state=directory

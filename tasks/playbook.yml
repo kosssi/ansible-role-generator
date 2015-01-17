@@ -1,0 +1,22 @@
+---
+
+- name: Generate playbook
+  local_action: template
+    src=playbook.j2
+    dest=./playbook.yml
+
+- name: Create folder for default vars
+  local_action: file
+    path=./vars/ansible-generator
+    state=directory
+
+- name: Copy default vars
+  local_action: command cp ./{{ roles_path }}/kosssi.generator/vars/{{ item }}.yml ./vars/ansible-generator/{{ item }}.yml
+     creates="./vars/ansible-generator/{{ item }}.yml"
+  with_items: packages + ['common']
+
+- name: Generate hosts
+  local_action: template
+    src=host.j2
+    dest=./{{ hostfile }}/{{ item }}
+  with_items: hosts
