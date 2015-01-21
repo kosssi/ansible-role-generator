@@ -5,7 +5,7 @@
   sudo: {{ sudo }}
   vars_files:
     - vars/ansible-generator.yml
-{% for package in packages + ['common'] %}
+{% for package in ['common'] + packages %}
     - vars/ansible-generator/{{ package }}.yml
 {% endfor %}
   roles:
