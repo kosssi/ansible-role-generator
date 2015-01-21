@@ -6,7 +6,18 @@
     regexp=^{{ ansible_generator_roles[item].name }},
     line="{{ ansible_generator_roles[item].name }},{{ ansible_generator_roles[item].version }}"
     create=yes
+  register: requirements_status
   with_items: packages
+
+- name: Download ansible role when requirements.txt changed
+  local_action: command ansible-galaxy install -r requirements.txt --force
+  when: requirements_download and requirements_status.changed
+
+- name: Download ansible role when folder is not present
+  local_action: command ansible-galaxy install -i {{ ansible_generator_roles[item].name }},{{ ansible_generator_roles[item].version }}
+    creates={{ roles_path }}/{{ ansible_generator_roles[item].name }}
+  with_items: packages
+  when: requirements_download
 
 - name: Generate ansible.cfg
   local_action: template

@@ -17,6 +17,7 @@ hosts:
 
 # requirements.txt
 requirements_file: ./requirements.txt
+requirements_download: True
 
 # ansible.cfg
 ansible_cfg_file: ./ansible.cfg
