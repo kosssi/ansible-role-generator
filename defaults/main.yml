@@ -4,6 +4,8 @@
 ## Playbook
 ##
 
+generate_playbook: True
+
 hosts: all
 sudo: yes
 
@@ -14,6 +16,8 @@ hosts:
 ##
 ## For best practice tasks
 ##
+
+best_practice: True
 
 # requirements.txt
 requirements_file: ./requirements.txt
@@ -31,6 +35,13 @@ vagrant_box: ubuntu/trusty64
 vagrant_memory: 2048
 vagrant_cpus: 2
 vagrant_exec: 100
+
+
+##
+## For update hosts file
+##
+
+update_hosts_file: False
 
 
 ##

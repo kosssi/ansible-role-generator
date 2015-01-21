@@ -1,4 +1,11 @@
 ---
 
 - include: best-practice.yml
+  when: best_practice
+
 - include: playbook.yml
+  when: generate_playbook
+
+- include: update-hosts-file.yml
+  sudo: True
+  when: update_hosts_file

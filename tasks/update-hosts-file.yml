@@ -1,0 +1,6 @@
+---
+
+- name: Update hosts file for Vagrant
+  local_action: lineinfile
+    dest=/etc/hosts
+    line="{{ vagrant_ip }} {{ project_name }}.dev"
