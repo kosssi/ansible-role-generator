@@ -8,6 +8,11 @@
 {% for package in ['common'] + packages %}
     - vars/ansible-generator/{{ package }}.yml
 {% endfor %}
+{% if vars_files is defined %}
+{% for vars_file in vars_files %}
+    - vars/{{ vars_file }}.yml
+{% endfor %}
+{% endif %}
   roles:
 {% for package in packages %}
     - { role: {{ ansible_generator_roles[package].name }}, tags: {{ package }} }
