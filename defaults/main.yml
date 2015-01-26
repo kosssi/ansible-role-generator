@@ -35,6 +35,8 @@ vagrant_box: ubuntu/trusty64
 vagrant_memory: 2048
 vagrant_cpus: 2
 vagrant_exec: 100
+vagrant_src: ../{{ project_name }}
+vagrant_dest: /var/www/{{ project_name }}/current
 
 
 ##
