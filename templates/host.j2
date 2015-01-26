@@ -1,9 +1,2 @@
-[webservers]
+[{{ item }}]
 {{ project_name }}.dev
-
-[dbservers]
-{{ project_name }}.dev
-
-[{{ item }}:children]
-webservers
-dbservers
