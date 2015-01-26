@@ -1,5 +1,7 @@
 ---
 
+php_repository: false
+
 php_install:
   - php5
   - php5-intl
