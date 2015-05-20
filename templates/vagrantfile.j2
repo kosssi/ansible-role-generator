@@ -1,4 +1,4 @@
-$HOSTNAME = "{{ project_name }}.dev"
+$HOSTNAME = "{{ vagrant_hostname }}"
 $BOX = "{{ vagrant_box }}"
 $IP = "{{ vagrant_ip }}"
 $MEMORY = ENV.has_key?('VM_MEMORY') ? ENV['VM_MEMORY'] : "{{ vagrant_memory }}"

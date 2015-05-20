@@ -37,7 +37,7 @@ vagrant_cpus: 2
 vagrant_exec: 100
 vagrant_src: ../{{ project_name }}
 vagrant_dest: /var/www/{{ project_name }}/current
-
+vagrant_hostname: {{ project_name }}.dev
 
 ##
 ## For update hosts file
