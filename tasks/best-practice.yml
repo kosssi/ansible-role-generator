@@ -31,5 +31,5 @@
 
 - name: Create project folder for vagrant up
   local_action: file
-    path=../{{ project_name }}
+    path={{ vagrant_src }}
     state=directory
